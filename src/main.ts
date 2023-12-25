@@ -29,10 +29,10 @@ let state: boolean[][][] = Array(SIZE)
         )
     );
 
+const geometry = new THREE.BoxGeometry(1, 1, 1);
+const material = new THREE.MeshNormalMaterial();
 function addCube(x: number, y: number, z: number) {
     const HALF_SIZE = SIZE / 2;
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshNormalMaterial();
     const cube = new THREE.Mesh(geometry, material);
     cube.position.set(x - HALF_SIZE, y - HALF_SIZE, z - HALF_SIZE);
     scene.add(cube);
