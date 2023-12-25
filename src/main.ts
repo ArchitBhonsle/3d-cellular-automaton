@@ -55,15 +55,6 @@ function repaint() {
     addCubes();
 }
 
-const b = 6;
-function birth(x: number) {
-    return x == b;
-}
-const s = [5, 6, 7];
-function survives(x: number) {
-    return s.includes(x);
-}
-
 function step() {
     const newState = Array(SIZE)
         .fill(0)
@@ -88,8 +79,8 @@ function step() {
                     }
                 }
 
-                if (now && !survives(count)) now = false;
-                else if (!now && birth(count)) now = true;
+                if (now && !(count == 5 || count == 6 || count == 7)) now = false;
+                else if (!now && count == 6) now = true;
 
                 newState[i][j][k] = now;
             }
@@ -106,7 +97,7 @@ function update() {
 
 let lastTime = 0;
 function animate(time: number) {
-    if (time - lastTime > 200) {
+    if (time - lastTime > 100) {
         lastTime = time;
         update();
     }
