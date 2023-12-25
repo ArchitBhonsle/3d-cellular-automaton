@@ -15,17 +15,18 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const d1 = new THREE.DirectionalLight(0xFF0000, 2);
+const directionalLightStrength = 3;
+const d1 = new THREE.DirectionalLight(0xFF0000, directionalLightStrength);
 d1.position.set(SIZE, SIZE, 0);
 d1.lookAt(0, 0, 0);
 scene.add(d1);
 
-const d2 = new THREE.DirectionalLight(0x00FF00, 2);
+const d2 = new THREE.DirectionalLight(0x00FF00, directionalLightStrength);
 d2.position.set(0, SIZE, SIZE);
 d2.lookAt(0, 0, 0);
 scene.add(d2);
 
-const d3 = new THREE.DirectionalLight(0x0000FF, 2);
+const d3 = new THREE.DirectionalLight(0x0000FF, directionalLightStrength);
 d3.position.set(SIZE, 0, SIZE);
 d3.lookAt(0, 0, 0);
 scene.add(d3);
@@ -55,7 +56,7 @@ for (let i = 0; i < SIZE * SIZE * SIZE; ++i) {
 }
 
 const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshPhongMaterial({ color: 0xFFFFFF });
+const material = new THREE.MeshPhongMaterial({ color: 0x88AAFF });
 
 let cubes: THREE.Mesh<THREE.BoxGeometry, THREE.MeshPhongMaterial, THREE.Object3DEventMap>[] = []
 function addCubes() {
