@@ -81,6 +81,7 @@ function step() {
         for (let j = 0; j < SIZE; ++j) {
             for (let k = 0; k < SIZE; ++k) {
                 let count = 0;
+
                 if (i - 1 >= 0 && get(state, i - 1, j, k)) ++count;
                 if (i + 1 < SIZE && get(state, i + 1, j, k)) ++count;
                 if (j - 1 >= 0 && get(state, i, j - 1, k)) ++count;
@@ -129,7 +130,7 @@ function update() {
 
 let lastTime = 0;
 function animate(time: number) {
-    if (time - lastTime > 100) {
+    if (time - lastTime > 50) {
         lastTime = time;
         update();
     }
